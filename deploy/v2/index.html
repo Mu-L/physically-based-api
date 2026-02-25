@@ -69,14 +69,27 @@
     </script>
   </head>
   <body>
-    <redoc
-      spec-url="https://raw.githubusercontent.com/AntonPalmqvist/physically-based-api/refs/heads/main/schemas/openapi-schema-v2.json"
-      disable-telemetry="true"
-    ></redoc>
-    <!-- <redoc
-      spec-url="schemas/openapi-schema-v2.json"
-      disable-telemetry="true"
-    ></redoc> -->
-    <script type="module" src="../assets/js/redoc.standalone.js"></script>
+    <div id="app"></div>
+
+    <!-- Load Scalar script -->
+    <script src="../assets/js/api-reference.js"></script>
+
+    <!-- Initialize Scalar API Reference -->
+    <script>
+      Scalar.createApiReference("#app", {
+        url: "https://raw.githubusercontent.com/AntonPalmqvist/physically-based-api/refs/heads/main/schemas/openapi-schema-v2.json",
+        expandAllResponses: true,
+        hideModels: true,
+        theme: "default",
+        telemetry: false,
+        withDefaultFonts: false,
+        defaultOpenAllTags: true,
+        // proxyUrl: "https://proxy.scalar.com",
+        agent: {
+          disabled: true,
+        },
+      });
+    </script>
+    <link rel="stylesheet" href="../assets/css/custom.css" />
   </body>
 </html>
