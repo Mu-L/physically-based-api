@@ -1,4 +1,10 @@
 :root {
+  font-size: 14px;
+  --scalar-border-width: 0.5px;
+  --scalar-radius: 2px;
+  --scalar-radius-lg: 3px;
+  --scalar-radius-xl: 4px;
+
   --scalar-font:
     "JetBrains Mono", ui-monospace, Menlo, Monaco,
     "Cascadia Mono", "Segoe UI Mono", "Roboto Mono", "Oxygen Mono",
