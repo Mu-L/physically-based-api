@@ -37,6 +37,11 @@
     />
 
     <link rel="icon" type="image/png" href="../assets/img/favicon.png" />
+    <link
+      rel="preconnect"
+      href="https://raw.githubusercontent.com"
+      crossorigin
+    />
     <title>API | Physically Based</title>
     <!--
     Redoc doesn't change outer page styles
@@ -69,14 +74,25 @@
     </script>
   </head>
   <body>
-    <redoc
-      spec-url="https://raw.githubusercontent.com/AntonPalmqvist/physically-based-api/refs/heads/main/schemas/openapi-schema-v2.json"
-      disable-telemetry="true"
-    ></redoc>
-    <!-- <redoc
-      spec-url="schemas/openapi-schema-v2.json"
-      disable-telemetry="true"
-    ></redoc> -->
-    <script type="module" src="../assets/js/redoc.standalone.js"></script>
+    <div id="app"></div>
+
+    <!-- Load Scalar script (to update, get latest from https://cdn.jsdelivr.net/npm/@scalar/api-reference) -->
+    <script src="../assets/js/api-reference.js"></script>
+
+    <!-- Initialize Scalar API Reference -->
+    <script>
+      Scalar.createApiReference("#app", {
+        url: "https://raw.githubusercontent.com/AntonPalmqvist/physically-based-api/refs/heads/main/schemas/openapi-schema-v2.json",
+        expandAllResponses: true,
+        hideModels: true,
+        telemetry: false,
+        withDefaultFonts: false,
+        defaultOpenAllTags: true,
+        agent: {
+          disabled: true,
+        },
+      });
+    </script>
+    <link rel="stylesheet" href="../assets/css/custom.css" />
   </body>
 </html>
